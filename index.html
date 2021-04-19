@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <title>地图显示</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/message.css">
+</head>
+
+<body>
+    <div id="container"></div>
+    <div class="operate-box">
+        <header>
+            新增电子围栏
+        </header>
+        <section>
+            <form action="">
+                <div class="item num">
+                    <label for="">围栏编号</label>
+                    <input type="text" disabled>
+                </div>
+                <div class="item name">
+                    <label for="">围栏名称</label>
+                    <input type="text">
+                </div>
+                <div class="item">
+                    <label for="">围栏类型</label>
+                    <select class="type">
+                        <option value="polygon">多边形</option>
+                        <option value="circle">圆形</option>
+                        <option value="provinceCity">行政区</option>
+                    </select>
+                </div>
+                <div class="item radius">
+                    <label for="">圆形半径</label>
+                    <input type="text">
+                </div>
+                <div class="item position-info">
+                    <label for="">围栏信息</label>
+                    <input type="text" disabled>
+                </div>
+                <div class="item">
+                    <label for="">是否开启电子围栏</label>
+                    <div class="switch-container">
+                        <input id="switch" checked type="checkbox" class="switch" />
+                        <label for="switch"></label>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <footer>
+            <button class="reset">重置</button>
+            <button class="submit">确定</button>
+        </footer>
+    </div>
+
+
+    <div class="input-card">
+        <h4>下属行政区查询</h4>
+        <div class="input-item">
+            <div class="input-item-prepend"><span class="input-item-text">省市区</span></div>
+            <select id='province' style="width:100px" onchange='search(this)'></select>
+        </div>
+        <div class="input-item">
+            <div class="input-item-prepend"><span class="input-item-text">地级市</span></div>
+            <select id='city' style="width:100px" onchange='search(this)'></select>
+        </div>
+        <div class="input-item">
+            <div class="input-item-prepend"><span class="input-item-text">区县</span></div>
+            <select id='district' style="width:100px" onchange='search(this)'></select>
+        </div>
+    </div>
+
+    <div id="myPageTop">
+        <table>
+            <tr>
+                <td>
+                    <label>请输入关键字查询：</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="tipinput" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 加载地图JSAPI脚本 -->
+    <script
+        src="https://webapi.amap.com/maps?v=1.4.15&key=f72189a02d451c9311a19ec61e91146d&plugin=AMap.MouseTool&plugin=AMap.DistrictSearch&plugin=AMap.PolyEditor&plugin=AMap.CircleEditor&plugin=AMap.Autocomplete&plugin=AMap.PlaceSearch"></script>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/message.min.js"></script>
+    <script src="./js/tools.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/index.js"></script>
+</body>
